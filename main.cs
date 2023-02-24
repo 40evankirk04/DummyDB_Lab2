@@ -4,20 +4,25 @@ namespace DummyDB
 {
     class Program
     {
-        CultureInfo cultureInfo = new CultureInfo("ru-RU", false);
+        public static CultureInfo cultureInfo = new CultureInfo("ru-RU");
 
         public static void Main(string[] args)
         {
+            BookData.CheckTheСorrectness();
+
+            ReaderData.CheckTheСorrectness();
+
+            ReadersBooksData.CheckTheСorrectness();
 
             List<Reader> Readers = new List<Reader>
             {
                 new Reader
                 {
-                    Id = 1,
+                    Id = Convert.ToUInt32(ReaderData.reader1[0]),
 
-                    FIO = "Николаев И. Е.",
+                    FIO = ReaderData.reader1[1],
 
-                    TicketNumber = 1,
+                    TicketNumber = Convert.ToUInt32(ReaderData.reader1[2]),
 
                     CaptureDate = new Dictionary<uint, DateTime>
                     {
@@ -27,11 +32,11 @@ namespace DummyDB
 
                 new Reader
                 {
-                    Id = 2,
+                    Id = Convert.ToUInt32(ReaderData.reader2[0]),
 
-                    FIO = "Александр Олегович Костылев",
+                    FIO = ReaderData.reader2[1],
 
-                    TicketNumber = 2,
+                    TicketNumber = Convert.ToUInt32(ReaderData.reader2[2]),
 
                     CaptureDate = new Dictionary<uint, DateTime>
                     {
@@ -49,47 +54,47 @@ namespace DummyDB
             {
                 new Book 
                 {
-                    Id = 1,
+                    Id = Convert.ToUInt32(BookData.book1[0]),
 
-                    Author = "Толстой Л. Н.",
+                    Author = BookData.book1[1],
 
-                    Title = "Война и Мир",
+                    Title = BookData.book1[2],
 
-                    PublicationYear = 1867,
+                    PublicationYear = Convert.ToUInt32(BookData.book1[3]),
 
-                    CabinetNumber = 1,
+                    CabinetNumber = Convert.ToUInt16(BookData.book1[4]),
 
-                    ShelfNumber = 1
+                    ShelfNumber = Convert.ToByte((BookData.book1[5]))
                 },
 
                 new Book
                 {
-                    Id = 2,
+                    Id = Convert.ToUInt32(BookData.book2[0]),
 
-                    Author = "Толстой Л. Н.",
+                    Author = BookData.book2[1],
 
-                    Title = "Анна Каренина",
+                    Title = BookData.book2[2],
 
-                    PublicationYear = 1878,
+                    PublicationYear = Convert.ToUInt32(BookData.book2[3]),
 
-                    CabinetNumber = 1,
+                    CabinetNumber = Convert.ToUInt16(BookData.book2[4]),
 
-                    ShelfNumber = 1
+                    ShelfNumber = Convert.ToByte((BookData.book2[5]))
                 },
 
                 new Book
                 {
-                    Id = 3,
+                    Id = Convert.ToUInt32(BookData.book3[0]),
 
-                    Author = "Толстой Л. Н.",
+                    Author = BookData.book3[1],
 
-                    Title = "Казаки",
+                    Title = BookData.book3[2],
 
-                    PublicationYear = 1863,
+                    PublicationYear = Convert.ToUInt32(BookData.book3[3]),
 
-                    CabinetNumber = 1,
+                    CabinetNumber = Convert.ToUInt16(BookData.book3[4]),
 
-                    ShelfNumber = 2
+                    ShelfNumber = Convert.ToByte((BookData.book3[5]))
                 },
 
             };
