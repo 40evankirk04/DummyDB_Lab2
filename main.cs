@@ -15,7 +15,7 @@ namespace DummyDB
                 {
                     Id = 1,
 
-                    FIO = "Николаев Иван Евгеньевич",
+                    FIO = "Николаев И. Е.",
 
                     TicketNumber = 1,
 
