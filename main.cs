@@ -30,7 +30,7 @@ namespace DummyDB
 
                     ReturnDate = new Dictionary<uint, DateTime>
                     {
-                    
+                        { 2, Convert.ToDateTime(ReadersBooksData.readerBook1[3])}
                     }
                 },
 
@@ -49,7 +49,7 @@ namespace DummyDB
 
                     ReturnDate = new Dictionary<uint, DateTime>
                     {
-                        { 3, Convert.ToDateTime(ReadersBooksData.readerBook2[3]) }
+                    
                     }
                 }
             };
@@ -103,17 +103,23 @@ namespace DummyDB
 
             };
 
+            bool check = false;
+
             foreach (var book in books)
             {
                 foreach (var reader in readers)
-                {
+                { 
                     if (reader.CaptureDate.ContainsKey(book.Id) && reader.ReturnDate.ContainsKey(book.Id) == false)
                     {
                         Console.WriteLine($"{book.Title}: {reader.FIO}, {reader.CaptureDate[book.Id].ToString("d")}");
+
+                        check = true;
                     }
                 }
 
-                Console.WriteLine(book.Title);
+                if (check == true) check = false;
+
+                else Console.WriteLine(book.Title); 
             }
         }
 
