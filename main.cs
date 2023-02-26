@@ -1,12 +1,11 @@
-﻿using System.Globalization;
+﻿using System.Data;
+using System.Globalization;
 
 namespace DummyDB
 {
     class Program
     {
-        public static CultureInfo cultureInfo = new CultureInfo("ru-RU");
-
-        public static void Main(string[] args)
+        void Initialization()
         {
             BookData.CheckTheСorrectness();
 
@@ -14,7 +13,7 @@ namespace DummyDB
 
             ReadersBooksData.CheckTheСorrectness();
 
-            List<Reader> Readers = new List<Reader>
+            List<Reader> readers = new List<Reader>
             {
                 new Reader
                 {
@@ -26,7 +25,12 @@ namespace DummyDB
 
                     CaptureDate = new Dictionary<uint, DateTime>
                     {
-                        { 2, new DateTime(2022, 12, 1) }
+                        { 2, Convert.ToDateTime(ReadersBooksData.readerBook1[2])}
+                    },
+
+                    ReturnDate = new Dictionary<uint, DateTime>
+                    {
+                    
                     }
                 },
 
@@ -40,12 +44,12 @@ namespace DummyDB
 
                     CaptureDate = new Dictionary<uint, DateTime>
                     {
-                        { 3, new DateTime(2022, 10, 5) }
+                        { 3, Convert.ToDateTime(ReadersBooksData.readerBook2[2])}
                     },
 
                     ReturnDate = new Dictionary<uint, DateTime>
                     {
-                        {3, new DateTime(2022, 11, 5) }
+                        { 3, Convert.ToDateTime(ReadersBooksData.readerBook2[3]) }
                     }
                 }
             };
@@ -98,6 +102,26 @@ namespace DummyDB
                 },
 
             };
+
+            foreach (var book in books)
+            {
+                foreach (var reader in readers)
+                {
+                    if (reader.CaptureDate.ContainsKey(book.Id) && reader.ReturnDate.ContainsKey(book.Id) == false)
+                    {
+                        Console.WriteLine($"{book.Title}: {reader.FIO}, {reader.CaptureDate[book.Id].ToString("d")}");
+                    }
+                }
+
+                Console.WriteLine(book.Title);
+            }
+        }
+
+        public static void Main(string[] args)
+        {
+            Program dataBase = new Program();
+
+            dataBase.Initialization();
         }
     }
 }

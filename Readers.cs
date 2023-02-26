@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DummyDB
 {
-    public class Reader
+    class Reader
     {
         public uint Id;
 
@@ -20,7 +20,7 @@ namespace DummyDB
         public Dictionary<uint, DateTime> ReturnDate;
     }
 
-    public struct ReaderData
+    struct ReaderData
     {
         public ReaderData()
         {
@@ -42,6 +42,8 @@ namespace DummyDB
                 if (Int32.TryParse(reader1[i], out int elem) == false)
                 {
                     Console.WriteLine($"Тип данных {reader1[i]} не совпал с типом {i+1}-го столбца таблицы Readers!");
+
+                    Environment.Exit(0);
                 }
             }
 
@@ -50,7 +52,16 @@ namespace DummyDB
                 if (Int32.TryParse(reader2[i], out int elem) == false)
                 {
                     Console.WriteLine($"Тип данных {reader1[i]} не совпал с типом {i+1}-го столбца таблицы Readers!");
+
+                    Environment.Exit(0);
                 }
+            }
+
+            if (reader1.Length > header.Length || reader2.Length > header.Length)
+            {
+                Console.WriteLine("Данных больше, чем столбцов в таблице Readers!");
+
+                Environment.Exit(0);
             }
         }
     }

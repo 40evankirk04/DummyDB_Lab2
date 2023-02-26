@@ -44,6 +44,8 @@ namespace DummyDB
             if (Int32.TryParse(book1[0], out int v1) == false)
             {
                 Console.WriteLine($"Тип данных {book1[0]} не совпал с типом 1 столбца таблицы Books!");
+
+                Environment.Exit(0);
             }
 
             for (int i = 3; i < book1.Length; i++)
@@ -51,12 +53,16 @@ namespace DummyDB
                 if (Int32.TryParse(book1[i], out int elem) == false)
                 {
                     Console.WriteLine($"Тип данных {book1[i]} не совпал с типом {i+1}-го столбца таблицы Books!");
+
+                    Environment.Exit(0);
                 }
             }
 
             if (Int32.TryParse(book2[0], out int v2) == false)
             {
                 Console.WriteLine($"Тип данных {book2[0]} не совпал с типом 1-го столбца таблицы Books!");
+
+                Environment.Exit(0);
             }
 
             for (int i = 3; i < book2.Length; i++)
@@ -64,12 +70,16 @@ namespace DummyDB
                 if (Int32.TryParse(book2[i], out int elem) == false)
                 {
                     Console.WriteLine($"Тип данных {book2[i]} не совпал с типом {i+1}-го столбца таблицы Books!");
+
+                    Environment.Exit(0);
                 }
             }
 
             if (Int32.TryParse(book3[0], out int v3) == false)
             {
                 Console.WriteLine($"Тип данных {book3[0]} не совпал с типом 1-го столбца таблицы Books!");
+
+                Environment.Exit(0);
             }
 
             for (int i = 3; i < book3.Length; i++)
@@ -77,7 +87,16 @@ namespace DummyDB
                 if (Int32.TryParse(book3[i], out int elem) == false)
                 {
                     Console.WriteLine($"Тип данных {book3[i]} не совпал с типом {i+1}-го столбца таблицы Books!");
+
+                    Environment.Exit(0);
                 }
+            }
+
+            if (book1.Length > header.Length || book2.Length > header.Length || book3.Length > header.Length)
+            {
+                Console.WriteLine("Данных больше, чем столбцов в таблице Books!");
+
+                Environment.Exit(0);
             }
 
         }
