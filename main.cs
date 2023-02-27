@@ -5,7 +5,7 @@ namespace DummyDB
 {
     class Program
     {
-        void Initialization()
+        void Initializa()
         {
             BookData.CheckTheСorrectness();
 
@@ -127,7 +127,7 @@ namespace DummyDB
         {
             Program dataBase = new Program();
 
-            dataBase.Initialization();
+            dataBase.Initializa();
         }
     }
 }
