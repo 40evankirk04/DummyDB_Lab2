@@ -41,6 +41,13 @@ namespace DummyDB
 
         public static void CheckTheСorrectness()
         {
+            if (book1.Length > header.Length || book2.Length > header.Length || book3.Length > header.Length)
+            {
+                Console.WriteLine("Данных больше, чем столбцов в таблице Books!");
+
+                Environment.Exit(0);
+            }
+
             if (Int32.TryParse(book1[0], out int v1) == false)
             {
                 Console.WriteLine($"Тип данных {book1[0]} не совпал с типом 1 столбца таблицы Books!");
@@ -91,14 +98,6 @@ namespace DummyDB
                     Environment.Exit(0);
                 }
             }
-
-            if (book1.Length > header.Length || book2.Length > header.Length || book3.Length > header.Length)
-            {
-                Console.WriteLine("Данных больше, чем столбцов в таблице Books!");
-
-                Environment.Exit(0);
-            }
-
         }
     }
 }

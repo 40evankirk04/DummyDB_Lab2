@@ -37,6 +37,13 @@ namespace DummyDB
 
         public static void CheckTheСorrectness()
         {
+            if (reader1.Length > header.Length || reader2.Length > header.Length)
+            {
+                Console.WriteLine("Данных больше, чем столбцов в таблице Readers!");
+
+                Environment.Exit(0);
+            }
+
             for (int i = 0; i <= reader1.Length; i+=2)
             {
                 if (Int32.TryParse(reader1[i], out int elem) == false)
@@ -55,13 +62,6 @@ namespace DummyDB
 
                     Environment.Exit(0);
                 }
-            }
-
-            if (reader1.Length > header.Length || reader2.Length > header.Length)
-            {
-                Console.WriteLine("Данных больше, чем столбцов в таблице Readers!");
-
-                Environment.Exit(0);
             }
         }
     }
