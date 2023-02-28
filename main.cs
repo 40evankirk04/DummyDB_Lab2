@@ -5,7 +5,7 @@ namespace DummyDB
 {
     class Program
     {
-        void Initializa()
+        void Initialize()
         {
             BookData.CheckTheСorrectness();
 
@@ -25,12 +25,12 @@ namespace DummyDB
 
                     CaptureDate = new Dictionary<uint, DateTime>
                     {
-                        { 2, Convert.ToDateTime(ReadersBooksData.readerBook1[2])}
+                        { Convert.ToUInt32(ReadersBooksData.readerBook1[1]), Convert.ToDateTime(ReadersBooksData.readerBook1[2])}
                     },
 
                     ReturnDate = new Dictionary<uint, DateTime>
                     {
-                        { 2, Convert.ToDateTime(ReadersBooksData.readerBook1[3])}
+                        { Convert.ToUInt32(ReadersBooksData.readerBook1[1]), Convert.ToDateTime(ReadersBooksData.readerBook1[3])}
                     }
                 },
 
@@ -44,7 +44,7 @@ namespace DummyDB
 
                     CaptureDate = new Dictionary<uint, DateTime>
                     {
-                        { 3, Convert.ToDateTime(ReadersBooksData.readerBook2[2])}
+                        { Convert.ToUInt32(ReadersBooksData.readerBook2[1]), Convert.ToDateTime(ReadersBooksData.readerBook2[2])}
                     },
 
                     ReturnDate = new Dictionary<uint, DateTime>
@@ -127,7 +127,7 @@ namespace DummyDB
         {
             Program dataBase = new Program();
 
-            dataBase.Initializa();
+            dataBase.Initialize();
         }
     }
 }

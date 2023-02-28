@@ -51,7 +51,7 @@ namespace DummyDB
             {
                 if (Int32.TryParse(reader2[i], out int elem) == false)
                 {
-                    Console.WriteLine($"Тип данных {reader1[i]} не совпал с типом {i+1}-го столбца таблицы Readers!");
+                    Console.WriteLine($"Тип данных {reader2[i]} не совпал с типом {i+1}-го столбца таблицы Readers!");
 
                     Environment.Exit(0);
                 }
